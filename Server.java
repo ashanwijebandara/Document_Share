@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.*;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -38,8 +39,13 @@ public class Server {
         jFrame.setVisible(true);
 
         ServerSocket serverSocket = new ServerSocket(1234);
+       // InetAddress localhost = InetAddress.getLocalHost();
+       // String ipAddress = localhost.getHostAddress();
+
+       // ServerSocket serverSocket = new ServerSocket(1234);
         while (true) {
             try {
+
                 Socket socket = serverSocket.accept();
 
                 DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
