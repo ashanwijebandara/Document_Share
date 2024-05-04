@@ -65,20 +65,11 @@ public class Client {
                         FileInputStream fileInputStream = new FileInputStream(fileToSend[0].getAbsolutePath());
                         Socket socket = new Socket("localhost",1234);
                         //Socket socket = new Socket("192.168.0.143",1234);
-
-                        DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
-
                         String fileName = fileToSend[0].getName();
-                        byte[] fileNameBytes = fileName.getBytes();
-
                         byte[] fileContentBytes = new byte[(int)fileToSend[0].length()];
-                        fileInputStream.read(fileContentBytes);
 
-                        dataOutputStream.writeInt(fileNameBytes.length);
-                        dataOutputStream.write(fileNameBytes);
-
-                        dataOutputStream.writeInt(fileContentBytes.length);
-                        dataOutputStream.write(fileContentBytes);
+                        Client_Thread clientThread = new Client_Thread(socket,fileName, fileContentBytes,fileInputStream);
+                        clientThread.start();
 
                     }
                     catch (IOException error){
