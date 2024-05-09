@@ -104,33 +104,40 @@ public class Server_Thread extends Thread {
     public JFrame createFrame(String fileName, byte[] fileData, int fileId) { // Receive fileId here
 
         JFrame jFrame = new JFrame("File Downloader");
-        jFrame.setSize(400, 400);
-
+        jFrame.setSize(600,450);
+        jFrame.setLocationRelativeTo(null);
+         
 
         JPanel jPanel = new JPanel();
         jPanel.setLayout(new BoxLayout(jPanel, BoxLayout.Y_AXIS));
-
+        jPanel.setBackground(Color.WHITE);
 
         JLabel jlTitle = new JLabel("File Downloader");
         jlTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         jlTitle.setFont(new Font("Arial", Font.BOLD, 25));
-        jlTitle.setBorder(new EmptyBorder(20, 0, 10, 0));
+        jlTitle.setBorder(new EmptyBorder(30, 0, 10, 0));
 
 
         JLabel jlPrompt = new JLabel("Are you sure you want to download " + fileName); // Use fileId here
         jlPrompt.setFont(new Font("Arial", Font.BOLD, 20));
-        jlPrompt.setBorder(new EmptyBorder(20, 0, 10, 0));
+        jlPrompt.setBorder(new EmptyBorder(50, 0, 40, 0));
         jlPrompt.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-
+        
+        
         JButton jbYes = new JButton("Yes");
         jbYes.setPreferredSize(new Dimension(150, 75));
         jbYes.setFont(new Font("Arial", Font.BOLD, 20));
+        jbYes.setBackground(new Color(220, 20, 60)); 
+        jbYes.setForeground(Color.WHITE);
+        jbYes.setBorder(BorderFactory.createLineBorder(new Color(220, 20, 60), 2));
 
 
         JButton jbNo = new JButton("No");
         jbNo.setPreferredSize(new Dimension(150, 75));
         jbNo.setFont(new Font("Arial", Font.BOLD, 20));
+        jbNo.setBackground(new Color(173, 216, 230)); 
+        jbNo.setForeground(Color.WHITE);
+        jbNo.setBorder(BorderFactory.createLineBorder(new Color(135, 206, 250), 2));
 
 
         JLabel jlFileContent = new JLabel();
@@ -138,6 +145,7 @@ public class Server_Thread extends Thread {
 
 
         JPanel jpButton = new JPanel();
+        jpButton.setBackground(Color.WHITE); 
         jpButton.setBorder(new EmptyBorder(20, 0, 10, 0));
         jpButton.add(jbYes);
         jpButton.add(jbNo);
